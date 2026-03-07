@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body style="background-color:#D3D3D3 ;" class="z-10 h-screen flex flex-col justify-center items-center">
+    <div id="ten" class="w-90 bg-white flex flex-col rounded z-20 p-5 shadow-2xl">
+        <h1 class="font-bold text-2xl text-center mb-3">Registration Form</h1>
+
+        <div class="relative">
+            <p class="font-semibold text-lg">* Name:</p>
+            <i class="fa-solid fa-user absolute left-3 top-13" style="color: rgb(84, 88, 104);"></i>
+            <input id="three" class="w-80 border p-2 pl-10 rounded h-16" type="text" name="" id="" placeholder="Enter your Name">
+            <p id="four"></p>
+        </div>
+
+
+        <div class="relative">
+            <p class="mt-5 font-semibold text-lg">* Email:</p>
+            <i class="fa-solid fa-envelope absolute left-3 top-18" style="color: rgb(84, 88, 104);"></i>
+            <input id="five" class="w-80 border p-2 pl-10 rounded h-16" type="email" name="" id="" placeholder="Enter your Mail">
+            <p id="six"></p>
+        </div>
+
+        <div class="relative">
+            <p class="mt-5 font-semibold text-lg">* Password:</p>
+            <i class="fa-solid fa-lock absolute left-3 top-18" style="color: rgb(84, 88, 104);"></i>
+            <input class="w-80 border p-2 pl-10 rounded h-16" type="password" name="" id="two" placeholder="**********">
+            <i id="one" class="fa-solid fa-eye-slash absolute top-18 left-70 text-gray-600 hover:text-black"></i>
+            <p id="eight"></p>
+        </div>
+
+        <button id="nine" class="mt-5 w-80 rounded p-3 text-white bg-blue-500 hover:bg-blue-800 cursor-pointer">Submit</button>
+
+    </div>
+
+    <div id="eleven" class="hidden bg-white p-5 rounded shadow-2xl">
+        <h1 class="text-center text-2xl font-bold underline">Registration Form</h1>
+        <p class="mx-5 my-5"><i class="fa-solid fa-circle-check" style="color: rgb(116, 192, 252);"></i>Form submitted successfully!</p>
+        <p id="one1" class="text-center font-semibold hover:text-red-600">Back</p>
+    </div>
+
+    <script>
+        var a = document.getElementById("one")
+        var b = document.getElementById("two")
+        var c = document.getElementById("three")
+        var d = document.getElementById("four")
+        var e = document.getElementById("five")
+        var f = document.getElementById("six")
+        
+        var h = document.getElementById("eight")
+        var i = document.getElementById("nine")
+        var j=document.getElementById("ten")
+        var k=document.getElementById("eleven")
+        
+        var l=document.getElementById("one1")
+
+        a.addEventListener("click", function () {
+            if (b.type === "password") {
+                b.type = "text"
+                a.classList.remove("fa-eye-slash")
+                a.classList.add("fa-eye")
+            }
+            else {
+                b.type = "password"
+                a.classList.remove("fa-eye")
+                a.classList.add("fa-eye-slash")
+            }
+        })
+
+        i.addEventListener("click",function(){
+            var c1=c.value.trim()
+            var e1=e.value.trim()
+            var b1=b.value.trim()
+
+            var c2=/[A-Za-z]/
+            var e2=/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            var valid=true
+
+            if (!c2.test(c1)){
+                d.textContent="*Name must contain at least one letter"
+                d.style.color='red'
+                valid=false
+            }
+            else{
+                d.textContent=""
+            }
+
+            if (!e2.test(e1)){
+                f.textContent="*Enter a valid email (example@gmail.com)"
+                f.style.color="red"
+                valid=false
+            }
+            else{
+                f.textContent=""
+            }
+
+
+            if (b1.length<6){
+                h.textContent="*Password must contain at least 6 characters"
+                h.style.color="red"
+            }
+            else{
+                h.textContent=""
+            }
+
+            setTimeout(function(){
+                d.textContent=""
+                f.textContent=""
+                h.textContent=""
+            },2000);
+
+            if (valid){
+                j.classList.add("hidden")
+                k.classList.remove("hidden")
+            }
+
+        })
+
+        l.addEventListener("click",function(){
+            j.classList.remove("hidden")
+                k.classList.add("hidden")
+        })
+
+
+        
+
+    </script>
+</body>
+
+</html>

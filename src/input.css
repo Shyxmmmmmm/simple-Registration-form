@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+
+
+/* npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch
+
+
+<link rel="stylesheet" href="./dist/output.css">
